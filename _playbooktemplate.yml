@@ -1,0 +1,13 @@
+---
+- name: playbook template
+  hosts: all
+  gather_facts: true
+  force_handlers: true
+
+  pre_tasks:
+
+  roles:
+    - name: nom_du_role
+      task: main.yml
+      vars:
+        - nom_du_role_var1: valeur
