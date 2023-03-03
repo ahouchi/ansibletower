@@ -1,0 +1,24 @@
+- hosts: all
+  gather_facts: true
+
+#tasks playbook
+  tasks:
+
+    - name: Print all available facts
+      ansible.builtin.debug:
+        var: ansible_facts
+
+    - name: Create directory for ansible custom facts
+      ansible.builtin.file:
+        state: directory
+        recurse: true
+        path: /etc/ansible/facts.d
+
+    - name: Install custom ipmi fact
+      ansible.builtin.copy:
+        src: ipmi.fact
+        dest: /etc/ansible/facts.d
+
+    - name: Re-read facts after adding custom fact
+      ansible.builtin.setup:
+        filter: ansible_local
