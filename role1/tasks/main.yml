@@ -13,12 +13,10 @@
   when: _vartemplate is defined
 
 - name: install custom impi fact
-  ansible.builtin.copy:
-  #template: 
-    #remote_src: true 
-    remote_src: false
+  ansible.builtin.template:
     src: ipmi.fact.j2 
     dest: /etc/ansible/facts.d/ipmi.fact 
+    mode: '0644'
   register: config_status
   when: _vartemplate is defined
 
