@@ -9,5 +9,6 @@
   roles:
     - name: role1
       task: printfacts
-      vars:
-        - _vartemplate: role1
+      
+  vars:
+    - _vartemplate: role1
