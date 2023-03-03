@@ -5,22 +5,16 @@
   ansible.builtin.debug:
     var: ansible_facts
 
-- name: Create directory for ansible custom facts
+- name: Create directory to copy template 
   ansible.builtin.file:
     state: directory
     recurse: true
-    path: /etc/ansible/facts.d
+    path: /home/ansible/configs
   when: _vartemplate is defined
 
-- name: install custom impi fact
+- name: copy jinja file 
   ansible.builtin.template:
-    src: ipmi.fact.j2 
-    dest: /etc/ansible/facts.d/ipmi.fact 
+    src: srctemplate.j2
+    dest: /home/ansible/templates/config1.conf 
     mode: '0644'
-  register: config_status
-  when: _vartemplate is defined
-
-- name: Re-read facts after adding custom fact
-  ansible.builtin.setup:
-    filter: ansible_local
   when: _vartemplate is defined
