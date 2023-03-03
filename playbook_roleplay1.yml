@@ -1,0 +1,13 @@
+---
+- name: playbook play role1
+  hosts: all
+  gather_facts: true
+  force_handlers: true
+
+  pre_tasks:
+
+  roles:
+    - name: role1
+      task: printfacts
+      vars:
+        - _vartemplate: role1

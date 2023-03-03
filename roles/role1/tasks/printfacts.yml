@@ -13,12 +13,15 @@
         state: directory
         recurse: true
         path: /etc/ansible/facts.d
+      when: _vartemplate is defined
 
     - name: Install custom ipmi fact
       ansible.builtin.copy:
         src: ipmi.fact
         dest: /etc/ansible/facts.d
+      when: _vartemplate is defined
 
     - name: Re-read facts after adding custom fact
       ansible.builtin.setup:
         filter: ansible_local
+      when: _vartemplate is defined
