@@ -8,7 +8,7 @@
 
   roles:
     - name: role1
-      task: printfacts.yml
+      task: main.yml
       
   vars:
     - _vartemplate: role1
