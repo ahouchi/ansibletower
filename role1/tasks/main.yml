@@ -14,7 +14,7 @@
 
 - name: install custom impi fact
   template: 
-    src: templates/ipmi.fact.j2 
+    src: role1/templates/ipmi.fact.j2 
     dest: /etc/ansible/facts.d/ipmi.fact 
     mode: 0755
   register: config_status
