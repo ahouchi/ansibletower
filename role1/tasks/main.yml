@@ -16,6 +16,7 @@
   ansible.builtin.copy:
   #template: 
     #remote_src: true 
+    remote_src: false
     src: ipmi.fact.j2 
     dest: /etc/ansible/facts.d/ipmi.fact 
   register: config_status
