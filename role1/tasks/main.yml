@@ -16,7 +16,6 @@
   template: 
     src: role1/files/ipmi.fact.j2 
     dest: /etc/ansible/facts.d/ipmi.fact 
-    mode: 0755
   register: config_status
   when: _vartemplate is defined
 
