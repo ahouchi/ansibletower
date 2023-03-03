@@ -15,6 +15,6 @@
 - name: copy jinja file 
   ansible.builtin.template:
     src: srctemplate.j2
-    dest: /home/ansible/templates/config1.conf 
+    dest: /home/ansible/configs/config1.conf 
     mode: '0644'
   when: _vartemplate is defined
