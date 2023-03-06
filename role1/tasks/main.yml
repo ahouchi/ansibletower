@@ -18,3 +18,16 @@
     dest: /home/ansible/configs/config1.conf 
     mode: '0644'
   when: _vartemplate is defined
+
+  
+  - name: Install apache
+    apt:
+      name: apache2
+      state: latest
+    when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+ 
+  - name: Install httpd
+    yum:
+      name: httpd
+      state: latest
+    when: ansible_distribution == 'RedHat'
