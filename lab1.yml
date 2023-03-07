@@ -1,0 +1,17 @@
+--- 
+- name: Lab1 configure selinux et motd
+  hosts: all
+  gather_facts: true
+  force_handlers: true
+
+  tasks:
+    - name: Configure selinux to {{ selinux }}
+      selinux:
+        policy: targeted
+        state: permissive
+        
+    - name: copy motd file
+      copy:
+        src: motd
+        dest: /etc/motd
+
